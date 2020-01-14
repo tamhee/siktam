@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예약페이지</title>
+    <link rel="stylesheet" href="../resources/css/headerfooterLayout.css">
+    <!-- 추가 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- datepicker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!-- timepicker -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css">
+    <script src='https://cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js'></script>
+    <script>
+        $(function() {
+            $( "#datepicker1" ).datepicker({
+                dateFormat: 'yy.mm.dd',
+                prevText: '이전 달',
+                nextText: '다음 달',
+                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                dayNames: ['일','월','화','수','목','금','토'],
+                dayNamesShort: ['일','월','화','수','목','금','토'],
+                dayNamesMin: ['일','월','화','수','목','금','토'],
+                showMonthAfterYear: true,
+                changeMonth: true,
+                changeYear: true,
+                yearSuffix: '년'
+            });
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $('.timepicker').timepicker();
+        });
+    </script>
+    <style>
+
+
+        /* 업체명 */
+        #title{
+            /* text-align: center; */
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+        }
+        #date-time, #menu{
+            width: 80%;
+            /* height: 200px; */
+            margin: auto;
+            /* text-align: center; */
+            font-size: 1.2em;
+            margin-top: 10px;
+            border: 1px solid #d9d9d9;
+            padding: 2%;
+        }
+
+
+
+        #date-time{
+            height: 120px;
+        }
+
+        #date{
+            width: 48%;
+            margin: auto;
+            display: inline-block;
+        }
+
+        #time{
+            width: 48%;
+            margin: auto;
+            display: inline-block;
+        }
+
+        
+        #menu{
+            height: 500px;
+        }
+
+        #menu #menu1{
+            width: 30%;
+            height: 500px;
+            display: inline-block;
+        }
+
+        #menu #menu2{
+            height: 400px;
+            border: 1px solid #d9d9d9;
+            overflow: auto;
+        }
+
+        #menu #tbl{
+            height: 150px;
+            width: 80%;
+            /* border: 1px solid #d9d9d9; */
+            /* margin: auto; */
+        }
+
+        #menu label{
+            cursor: pointer;
+        }
+
+        #result{
+            /* height: 300px; */
+            display: inline-block;
+        }
+
+        #menu #result{
+            width: 50%;
+            height: 500px;
+            /* border: 1px solid #d9d9d9; */
+            /* overflow: auto; */
+            display: inline-block;
+            margin:auto;
+        }
+        #result #result1, #result2{
+            width: 48%;
+            margin: auto;
+            display: inline-block;
+            border: 1px solid #d9d9d9;
+            height: 80%;
+            overflow: auto;
+            padding: 2%;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <!-- 헤더 시작 -->
+    <header>
+        <nav id="nav">
+        <div id="logodiv"><img id="logo" src="../resources/images/KakaoTalk_20200101_193858750.png" alt=""></div>
+        <div id="navp">
+            <a class="navp" href=""><span>로그인</span></a>
+            <a class="navp" href=""><span>마이페이지</span></a>
+        </div>
+        </nav>
+    </header>
+
+    <!-- 이 안에 작업하기 -->
+    
+    <div id="title"><h1><b>업체명</b></h1></div>
+
+    <hr>
+
+    <div id="date-time">
+        <div id="date">
+            <p>Calendar icon: <span class="glyphicon glyphicon-calendar"></span></p>    
+            <input type="text" id="datepicker1" placeholder="예약일자">
+        </div>
+        <div id="time">
+            <p>Time icon: <span class="glyphicon glyphicon-time"></span></p>  
+            <input type="text" class='timepicker' placeholder="예약시간">
+        </div>
+    </div>
+
+    <div id="menu">
+        <div id="menu1">
+        <p>List-alt icon: <span class="glyphicon glyphicon-list-alt"></span></p>
+        <div id="menu2">
+            <table id="tbl">
+                <tr>
+                    <td id="img"><img src="../resources/images/01.png" style="width:100px" alt="Image" class="img-thumbnail"></td>
+                    <td id="txtTitle"><input type="checkbox" value="후라이드 치킨" id='a1' class="listCheck" onclick='check();'><label for="a1">후라이드 치킨</label></td>
+                    <td id="txtPrice"><input type="hidden" value="5000원" id='p1' class="listPrice"><label>5000원</label></td>
+                </tr>
+                <tr>
+                    <td id="img"><img src="../resources/images/02.png" style="width:100px" alt="Image" class="img-thumbnail"></td>
+                    <td id="txtTitle"><input type="checkbox" value="양념 치킨" id='a2' class="listCheck" onclick='check();'><label for="a2">양념 치킨</label></td>
+                    <td id="txtPrice"><input type="hidden" value="6000원" id='p2' class="listPrice"><label>6000원</label></td>
+                </tr>
+
+
+                <tr>
+                    <td id="img"><img src="../resources/images/03.png" style="width:100px" alt="Image" class="img-thumbnail"></td>
+                    <td id="txtTitle"><input type="checkbox" value="간장 치킨" id='a3' class="listCheck" onclick='check();'><label for="a3">간장 치킨</label></td>
+                    <td id="txtPrice"><input type="hidden" value="6000원" id='p3' class="listPrice"><label>6000원</label></td>
+                </tr>
+
+                <tr>
+                    <td id="img"><img src="../resources/images/04.png" style="width:100px" alt="Image" class="img-thumbnail"></td>
+                    <td id="txtTitle"><input type="checkbox" value="파닭 치킨" id='a4' class="listCheck" onclick='check();'><label for="a4">파닭 치킨</label></td>
+                    <td id="txtPrice"><input type="hidden" value="7000원" id='p4' class="listPrice"><label>7000원</label></td>
+                </tr>
+
+                <tr>
+                    <td id="img"><img src="../resources/images/05.png" style="width:100px" alt="Image" class="img-thumbnail"></td>
+                    <td id="txtTitle"><input type="checkbox" value="크리스피 치킨" id='a5' class="listCheck" onclick='check();'><label for="a5">크리스피 치킨</label></td>
+                    <td id="txtPrice"><input type="hidden" value="7000원" id='p5' class="listPrice"><label>7000원</label></td>
+                </tr>
+
+                <tr>
+                    <td id="img"><img src="../resources/images/06.png" style="width:100px" alt="Image" class="img-thumbnail"></td>
+                    <td id="txtTitle"><input type="checkbox" value="훈제 치킨" id='a6' class="listCheck" onclick='check();'><label for="a6">훈제 치킨</label></td>
+                    <td id="txtPrice"><input type="hidden" value="5000원" id='p6' class="listPrice"><label>5000원</label></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+
+        <div id="result">
+            <p>Check icon: <span class="glyphicon glyphicon-check"></span></p>
+            <div id="result1">
+
+            </div>
+            <div id="result2">
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function check(){
+            var result1 = document.getElementById('result1');
+            var result2 = document.getElementById('result2');
+            var listCheck = document.getElementsByClassName("listCheck");
+            var listPrice = document.getElementsByClassName("listPrice");
+            result1.innerHTML = "";
+            result2.innerHTML = "";
+
+            var sumPrice = 0;
+            for(var i=0; i<listCheck.length; i++){
+                if(listCheck[i].checked==true){
+                    result1.innerHTML += "<label for='" + listCheck[i].id + "'>" + listCheck[i].value + "<button class='btn'><i class='fa fa-close'>버튼</i></button></label><br><br>";
+                    result2.innerHTML += "<label for='" + listCheck[i].id + "'>" + listPrice[i].value + "</label><br><br>";
+                    
+                    sumPrice += parseInt(listPrice[i].value.replace(/[가-힣]/g,''));
+                }
+            }
+            result2.innerHTML += "총액 : <h2>" + sumPrice + "</h2>원";
+
+        }
+    </script>
+
+    <!-- 푸터 시작 -->
+    <footer>
+        
+    </footer>
+</body>
+</html>
